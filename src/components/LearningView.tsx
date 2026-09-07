@@ -89,10 +89,12 @@ export const LearningView: React.FC<LearningViewProps> = ({
   const relevantChapters = chapters.filter((c) => {
     const matchesClass = c.classLevel === classLevel;
     const matchesSubject = selectedSubject ? c.subjectId === selectedSubject.id : true;
-    const matchesSearch = searchQuery.trim() === '' || 
-      c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      c.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      c.overview.toLowerCase().includes(searchQuery.toLowerCase());
+    const q = searchQuery.trim().toLowerCase();
+    const matchesSearch =
+      q === '' ||
+      (c.title && c.title.toLowerCase().includes(q)) ||
+      (c.description && c.description.toLowerCase().includes(q)) ||
+      (c.overview && c.overview.toLowerCase().includes(q));
     return matchesClass && matchesSubject && matchesSearch;
   });
 
@@ -121,7 +123,7 @@ export const LearningView: React.FC<LearningViewProps> = ({
     if (!selectedChapter) return;
     setIsSubmitting(true);
 
-    const currentQuestions = type === 'test' ? selectedChapter.practiceTest.questions : selectedChapter.mcqs;
+    const currentQuestions = (type === 'test' ? selectedChapter.practiceTest?.questions : selectedChapter.mcqs) || [];
     const answersArray = currentQuestions.map((_, i) =>
       type === 'test' ? (testAnswers[i] !== undefined ? testAnswers[i] : -1) : (selectedAnswers[i] !== undefined ? selectedAnswers[i] : -1)
     );
@@ -152,9 +154,46 @@ export const LearningView: React.FC<LearningViewProps> = ({
           playChime('success');
         }
         onRefreshUser();
+      } else {
+        throw new Error(data.message || 'Quiz scoring error');
       }
     } catch (err) {
-      console.error('Quiz submission error:', err);
+      console.warn('Quiz submission fallback calculation:', err);
+      // Offline / network fallback scoring
+      let score = 0;
+      const results = currentQuestions.map((q, idx) => {
+        const userAns = type === 'test' ? testAnswers[idx] : selectedAnswers[idx];
+        const correct = userAns !== undefined && userAns === q.correctIndex;
+        if (correct) score++;
+        return {
+          questionId: q.id,
+          userAnswerIndex: userAns,
+          correctAnswerIndex: q.correctIndex,
+          isCorrect: correct,
+          explanation: q.explanation || 'Verified NCERT educational solution.',
+        };
+      });
+      const total = currentQuestions.length || 1;
+      const percentage = Math.round((score / total) * 100);
+      const xpEarned = score * (type === 'test' ? 25 : 15);
+      setQuizResult({
+        score,
+        total,
+        percentage,
+        xpEarned,
+        results,
+      });
+      setQuizSubmitted(true);
+      if (percentage >= 80) {
+        playChime('badge');
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      } else {
+        playChime('success');
+      }
     } finally {
       setIsSubmitting(false);
     }

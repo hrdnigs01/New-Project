@@ -295,16 +295,96 @@ $$\\frac{\\text{Numerator (अंश)}}{\\text{Denominator (हर)}} = \\frac{a
    - देशभर में 14,500 से अधिक स्कूलों को आधुनिक स्मार्ट क्लासरूम, प्रयोगशालाओं और रोबोटिक्स लैब्स के साथ अपग्रेड किया जा रहा है।
 
 *(अधिकृत जानकारी के लिए cbse.gov.in या ncert.nic.in पर संपर्क करें)*`;
-    } else {
-      fallbackText = `### 💡 LearnX Study Assistant Note
-NCERT Class ${classLevel} के अनुसार **${question}** के लिए आवश्यक अवधारणाएँ:
+    } else if (lowerQ.includes('newton') || lowerQ.includes('motion') || lowerQ.includes('force')) {
+      fallbackText = `### 🚀 Newton's Laws of Motion (न्यूटन के गति नियम)
+NCERT Class ${classLevel} Physics Concept Guide:
 
-1. **मूल अवधारणा (Core Concept)**: किसी भी विषय को समझने के लिए बुनियादी परिभाषा और शब्दावली से शुरुआत करें।
-2. **चरणबद्ध विधि (Step-by-Step Method)**:
-   - प्रश्न में दिए गए ज्ञात मानों (knowns) और क्या ज्ञात करना है (unknowns) की पहचान करें।
-   - संबंधित मानक सूत्र (formula) या नियम लिखें।
-   - मानों को उचित इकाइयों (SI units) के साथ प्रतिस्थापित करें।
-3. **परीक्षा टिप**: बोर्ड परीक्षाओं में पूरे अंक प्राप्त करने के लिए साफ-सुथरे नामांकित चित्र (labeled diagrams) और मुख्य बिंदुओं को रेखांकित करें!`;
+---
+### 1. First Law (Law of Inertia):
+- **Statement**: An object remains in a state of rest or uniform motion in a straight line unless acted upon by an external unbalanced force.
+- **Example**: Passengers lurch forward when a moving bus brakes suddenly due to inertia of motion.
+
+---
+### 2. Second Law (Momentum & Acceleration):
+- **Formula**: $F = \\frac{dp}{dt} = m \\cdot a$
+- Force is directly proportional to rate of change of momentum. SI Unit: **Newton (N)**.
+
+---
+### 3. Third Law (Action & Reaction):
+- **Statement**: To every action, there is an equal and opposite reaction acting on two different bodies ($F_{AB} = -F_{BA}$).
+- **Exam Tip**: In numericals, always draw a Free Body Diagram (FBD) and resolve forces into horizontal and vertical components!`;
+    } else if (lowerQ.includes('trigonometry') || lowerQ.includes('sin') || lowerQ.includes('cos') || lowerQ.includes('tan')) {
+      fallbackText = `### 📐 Trigonometry Key Formulas & Identities
+NCERT Class ${classLevel} Mathematics Revision:
+
+---
+### 1. Fundamental Ratios (Right-Angled Triangle):
+- $\\sin \\theta = \\frac{\\text{Perpendicular}}{\\text{Hypotenuse}}$
+- $\\cos \\theta = \\frac{\\text{Base}}{\\text{Hypotenuse}}$
+- $\\tan \\theta = \\frac{\\text{Perpendicular}}{\\text{Base}} = \\frac{\\sin \\theta}{\\cos \\theta}$
+
+---
+### 2. Pythagorean Identities:
+1. $\\sin^2 \\theta + \\cos^2 \\theta = 1$
+2. $1 + \\tan^2 \\theta = \\sec^2 \\theta$
+3. $1 + \\cot^2 \\theta = \\text{cosec}^2 \\theta$
+
+---
+### 3. Standard Angles Table (0°, 30°, 45°, 60°, 90°):
+- $\\sin(0°) = 0, \\; \\sin(30°) = \\frac{1}{2}, \\; \\sin(45°) = \\frac{1}{\\sqrt{2}}, \\; \\sin(60°) = \\frac{\\sqrt{3}}{2}, \\; \\sin(90°) = 1$
+- $\\cos \\theta$ is the reverse order of $\\sin \\theta$.
+- $\\tan(45°) = 1$.`;
+    } else if (lowerQ.includes('quadratic') || lowerQ.includes('discriminant')) {
+      fallbackText = `### 🧮 Quadratic Equations (द्विघात समीकरण)
+Standard form: $ax^2 + bx + c = 0$ ($a \\neq 0$)
+
+---
+### 1. Discriminant ($D$):
+$$D = b^2 - 4ac$$
+- If $D > 0$: Two distinct real roots ($x = \\frac{-b \\pm \\sqrt{D}}{2a}$)
+- If $D = 0$: Two real and equal roots ($x = -\\frac{b}{2a}$)
+- If $D < 0$: No real roots (complex roots)
+
+---
+### 2. Relations between Roots and Coefficients:
+Let roots be $\\alpha$ and $\\beta$:
+- **Sum of roots**: $\\alpha + \\beta = -\\frac{b}{a}$
+- **Product of roots**: $\\alpha \\cdot \\beta = \\frac{c}{a}$`;
+    } else if (lowerQ.includes('cell') || lowerQ.includes('mitochondria') || lowerQ.includes('dna')) {
+      fallbackText = `### 🔬 Cell Biology: Structure and Function
+NCERT Class ${classLevel} Biology Guide:
+
+---
+### 1. Cell: Fundamental Unit of Life
+- **Robert Hooke** discovered cells in 1665 in cork slices.
+- **Cell Theory**: All organisms are composed of cells; cells arise from pre-existing cells (*Omnis cellula-e-cellula* - Rudolf Virchow).
+
+---
+### 2. Key Organelles:
+1. **Mitochondria**: "Powerhouse of the cell" - synthesizes energy in the form of ATP (Adenosine Triphosphate).
+2. **Nucleus**: Contains genetic material (DNA/Chromosomes) that governs cellular reproduction and protein synthesis.
+3. **Ribosomes**: Sites of protein synthesis.
+4. **Chloroplasts** (in plants): Contain chlorophyll for photosynthesis.`;
+    } else {
+      fallbackText = `### 💡 LearnX Study Assistant Note: ${question}
+NCERT Class ${classLevel} Academic Breakdown:
+
+---
+### 1. मूल अवधारणा (Core Concept):
+- **अवधारणा**: ${question} विषय को समझने के लिए संबंधित NCERT अध्याय की बुनियादी शब्दावली, परिभाषा और दैनिक जीवन में इसके उदाहरणों पर ध्यान दें।
+- **कक्षा स्तर**: यह विषय Class ${classLevel} के मानक पाठ्यक्रम का एक महत्वपूर्ण हिस्सा है।
+
+---
+### 2. चरणबद्ध समाधान विधि (Step-by-Step Method):
+1. **दिया गया है (Given)**: प्रश्न में दिए गए ज्ञात मानों (knowns) और मुख्य शर्तों को अलग नोट करें।
+2. **ज्ञात करना है (To Find)**: क्या हल करना या सिद्ध करना है, इसे स्पष्ट रूप से लिखें।
+3. **सूत्र / नियम (Formula / Rule)**: संबंधित NCERT प्रमेय, रासायनिक समीकरण या गणितीय सूत्र लागू करें।
+4. **सत्यापन (Verification)**: अंतिम उत्तर की इकाइयों (SI Units) की जांच अवश्य करें।
+
+---
+### 3. परीक्षा में उच्च अंक हेतु सुझाव (Board Exam Tips):
+- 2 और 3 अंक के प्रश्नों में संक्षिप्त बिंदुवार (bullet points) उत्तर लिखें।
+- 5 अंक के दीर्घ उत्तरीय प्रश्नों में स्वच्छ नामांकित चित्र (neat labeled diagrams) और निष्कर्ष लिखें!`;
     }
 
     return {
