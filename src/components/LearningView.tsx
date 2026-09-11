@@ -345,38 +345,38 @@ export const LearningView: React.FC<LearningViewProps> = ({
             </div>
 
             {classLevel === 11 && onOpenStudyMaterial && (
-              <div className="flex items-center gap-1.5 flex-wrap">
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar w-full pt-1">
                 <button
                   onClick={() => onOpenStudyMaterial(selectedChapter.chapterNumber, 'mathematics')}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-900 text-[11px] font-bold border border-emerald-200 transition shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-900 text-[11px] font-bold border border-emerald-200 transition shadow-2xs whitespace-nowrap flex-shrink-0"
                 >
                   <Calculator className="w-3 h-3 text-emerald-700" />
                   <span>Math 14 Ch & Upload Quiz</span>
                 </button>
                 <button
                   onClick={() => onOpenStudyMaterial(undefined, 'business-studies')}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 text-[11px] font-bold border border-amber-200 transition shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 text-[11px] font-bold border border-amber-200 transition shadow-2xs whitespace-nowrap flex-shrink-0"
                 >
                   <Briefcase className="w-3 h-3 text-amber-700" />
                   <span>Business Studies Notes & 30 MCQs</span>
                 </button>
                 <button
                   onClick={() => onOpenStudyMaterial(undefined, 'physics')}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cyan-50 hover:bg-cyan-100 text-cyan-900 text-[11px] font-bold border border-cyan-200 transition shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cyan-50 hover:bg-cyan-100 text-cyan-900 text-[11px] font-bold border border-cyan-200 transition shadow-2xs whitespace-nowrap flex-shrink-0"
                 >
                   <Atom className="w-3 h-3 text-cyan-700" />
                   <span>Physics Notes & 40 MCQs</span>
                 </button>
                 <button
                   onClick={() => onOpenStudyMaterial(undefined, 'biology')}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-900 text-[11px] font-bold border border-rose-200 transition shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-900 text-[11px] font-bold border border-rose-200 transition shadow-2xs whitespace-nowrap flex-shrink-0"
                 >
                   <Dna className="w-3 h-3 text-rose-700" />
                   <span>Biology Notes & 30 MCQs</span>
                 </button>
                 <button
                   onClick={() => onOpenStudyMaterial(selectedChapter.chapterNumber, 'accountancy')}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-[11px] font-bold border border-indigo-200 transition shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-[11px] font-bold border border-indigo-200 transition shadow-2xs whitespace-nowrap flex-shrink-0"
                 >
                   <Calculator className="w-3 h-3 text-indigo-600" />
                   <span>Accountancy Full Material</span>
@@ -385,7 +385,7 @@ export const LearningView: React.FC<LearningViewProps> = ({
             )}
           </div>
 
-          <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#4A4A3A]">
+          <h1 className="text-lg sm:text-2xl font-serif font-bold text-[#4A4A3A]">
             {selectedChapter.title}
           </h1>
           <p className="text-xs sm:text-sm text-[#7A7468] max-w-3xl leading-relaxed">
@@ -393,13 +393,13 @@ export const LearningView: React.FC<LearningViewProps> = ({
           </p>
 
           {/* Navigation Pill Tabs */}
-          <div className="flex flex-wrap gap-2 pt-3 border-t border-[#E5E0D8]">
+          <div className="flex items-center gap-2 pt-3 border-t border-[#E5E0D8] overflow-x-auto pb-1 no-scrollbar">
             {[
               { id: 'concepts', label: `Key Concepts (${selectedChapter.keyConcepts.length})`, icon: BookOpen },
-              { id: 'formulas', label: `Formulas & Rules (${selectedChapter.formulas.length})`, icon: Zap },
-              { id: 'notes', label: `Revision Notes (${selectedChapter.revisionNotes.length})`, icon: FileText },
+              { id: 'formulas', label: `Formulas (${selectedChapter.formulas.length})`, icon: Zap },
+              { id: 'notes', label: `Notes (${selectedChapter.revisionNotes.length})`, icon: FileText },
               { id: 'mcq', label: `MCQ Quiz (${selectedChapter.mcqs.length})`, icon: HelpCircle },
-              { id: 'test', label: 'Timed Board Mock', icon: Clock },
+              { id: 'test', label: 'Timed Mock', icon: Clock },
             ].map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -410,7 +410,7 @@ export const LearningView: React.FC<LearningViewProps> = ({
                     setActiveTab(tab.id as any);
                     handleResetQuiz();
                   }}
-                  className={`flex items-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-semibold transition ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl text-xs font-semibold whitespace-nowrap flex-shrink-0 transition ${
                     isActive
                       ? 'bg-[#5A634E] text-white shadow-xs'
                       : 'bg-[#F5F2ED] text-[#7A7468] hover:text-[#4A4A3A] hover:bg-[#EBE7DF] border border-[#E5E0D8]'
@@ -426,23 +426,23 @@ export const LearningView: React.FC<LearningViewProps> = ({
 
         {/* Tab 1: Key Concepts */}
         {activeTab === 'concepts' && (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {selectedChapter.keyConcepts.map((concept, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E5E0D8] space-y-2.5 shadow-xs"
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-2.5 shadow-xs"
               >
                 <div className="flex items-center gap-2.5">
-                  <span className="w-7 h-7 rounded-xl bg-[#EDF0E9] text-[#5A634E] text-xs font-bold flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-xl bg-[#EDF0E9] text-[#5A634E] text-xs font-bold flex items-center justify-center flex-shrink-0">
                     {idx + 1}
                   </span>
                   <h3 className="text-sm sm:text-base font-bold text-[#4A4A3A] font-serif">{concept.title}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#6B665C] leading-relaxed whitespace-pre-line pl-9">
+                <p className="text-xs sm:text-sm text-[#6B665C] leading-relaxed whitespace-pre-line pl-2 sm:pl-9">
                   {concept.explanation}
                 </p>
                 {concept.example && (
-                  <div className="ml-9 p-3 rounded-2xl bg-[#F5F2ED] border border-[#E5E0D8] text-xs text-[#5A634E] font-medium">
+                  <div className="ml-2 sm:ml-9 p-3 rounded-2xl bg-[#F5F2ED] border border-[#E5E0D8] text-xs text-[#5A634E] font-medium">
                     <span className="font-bold">Real-world NCERT Illustration: </span>
                     {concept.example}
                   </div>

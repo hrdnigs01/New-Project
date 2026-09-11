@@ -63,16 +63,16 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#E5E0D8]">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-1.5 sm:gap-2">
         {/* Brand & Class Picker */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-2xl bg-[#5A634E] flex items-center justify-center text-white shadow-sm">
-              <GraduationCap className="w-5 h-5" />
+        <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-[#5A634E] flex items-center justify-center text-white shadow-sm flex-shrink-0">
+              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif font-bold text-xl sm:text-2xl text-[#5A634E] tracking-tight">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-serif font-bold text-lg sm:text-2xl text-[#5A634E] tracking-tight">
                   LearnX
                 </span>
                 <span className="hidden sm:inline-block text-[10px] uppercase font-semibold tracking-wider px-2 py-0.5 rounded-full bg-[#F5F2ED] text-[#7A7468] border border-[#E5E0D8]">
@@ -87,19 +87,21 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               id="class-selector-btn"
               onClick={() => setShowClassDropdown(!showClassDropdown)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-xs sm:text-sm font-semibold text-[#4A4A3A] transition"
+              className="flex items-center gap-1 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-xs sm:text-sm font-semibold text-[#4A4A3A] transition"
+              aria-label="Select Grade / Class"
             >
-              <span>Class {classLevel}</span>
+              <span className="sm:hidden">Cl {classLevel}</span>
+              <span className="hidden sm:inline">Class {classLevel}</span>
               {classLevel >= 11 && stream && (
                 <span className="hidden md:inline text-[11px] text-[#5A634E] font-medium">
                   ({stream})
                 </span>
               )}
-              <ChevronDown className="w-3.5 h-3.5 text-[#8B8374]" />
+              <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8B8374]" />
             </button>
 
             {showClassDropdown && (
-              <div className="absolute top-full left-0 mt-2 w-56 p-3 rounded-2xl bg-white border border-[#E5E0D8] shadow-xl z-50 animate-in fade-in zoom-in-95">
+              <div className="absolute top-full left-0 mt-2 w-64 max-w-[calc(100vw-24px)] p-3 rounded-2xl bg-white border border-[#E5E0D8] shadow-xl z-50 animate-in fade-in zoom-in-95">
                 <div className="text-[11px] font-semibold text-[#8B8374] uppercase tracking-wider px-1 py-1">
                   Select Grade / Class
                 </div>
@@ -152,11 +154,11 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Center Search Trigger */}
+        {/* Center Search Trigger (Desktop / Tablet) */}
         <button
           id="global-search-trigger"
           onClick={onOpenSearch}
-          className="flex-1 max-w-xs hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-xs text-[#8B8374] transition"
+          className="flex-1 max-w-xs hidden sm:flex items-center gap-2 px-3.5 py-1.5 sm:py-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-xs text-[#8B8374] transition mx-2"
         >
           <Search className="w-3.5 h-3.5 text-[#8B8374]" />
           <span className="truncate">Search NCERT, Tutors, Books, AI...</span>
@@ -166,44 +168,48 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
 
         {/* Right Stats & Profile Controls */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5">
+        <div className="flex items-center gap-1 sm:gap-2">
           {/* Quick Search on mobile */}
           <button
             onClick={onOpenSearch}
-            className="sm:hidden p-2 rounded-full bg-[#F5F2ED] border border-[#E5E0D8] text-[#4A4A3A]"
+            className="sm:hidden p-1.5 rounded-full bg-[#F5F2ED] border border-[#E5E0D8] text-[#4A4A3A] hover:bg-[#EBE7DF] transition"
             title="Search"
+            aria-label="Search"
           >
             <Search className="w-4 h-4" />
           </button>
 
           {/* Streak Badge */}
           <div
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FDEBD0] border border-[#FAD7A0] text-[#AF601A] text-xs font-bold"
+            className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#FDEBD0] border border-[#FAD7A0] text-[#AF601A] text-xs font-bold"
             title={`${currentUser.streakDays} Day Study Streak`}
           >
             <Flame className="w-3.5 h-3.5 fill-[#AF601A]" />
-            <span>{currentUser.streakDays}d Streak</span>
+            <span>{currentUser.streakDays}d<span className="hidden sm:inline"> Streak</span></span>
           </div>
 
-          {/* XP Badge */}
+          {/* XP Badge (Desktop / Tablet) */}
           <div
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D5F5E3] border border-[#ABEBC6] text-[#1D8348] text-xs font-bold"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D5F5E3] border border-[#ABEBC6] text-[#1D8348] text-xs font-bold"
             title={`${currentUser.xp} Experience Points (Level ${currentUser.level})`}
           >
             <Zap className="w-3.5 h-3.5 text-[#1D8348]" />
             <span>{currentUser.xp.toLocaleString()} XP</span>
           </div>
 
-          {/* PWA / Android APK Install Button */}
-          <PWAInstallButton />
+          {/* PWA / Android APK Install Button (Hidden on tiny mobile header to avoid overflow, accessible via dashboard & menus) */}
+          <div className="hidden sm:block">
+            <PWAInstallButton />
+          </div>
 
           {/* Notifications */}
           <div className="relative">
             <button
               id="notifications-btn"
               onClick={() => setShowNotifications(!showNotifications)}
-              className="relative p-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-[#4A4A3A] transition"
+              className="relative p-1.5 sm:p-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] text-[#4A4A3A] transition"
               title="Notifications"
+              aria-label="Notifications"
             >
               <Bell className="w-4 h-4 text-[#5A634E]" />
               {unreadCount > 0 && (
@@ -214,7 +220,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 top-full mt-2 w-80 max-w-[90vw] p-3 rounded-2xl bg-white border border-[#E5E0D8] shadow-2xl z-50 animate-in fade-in">
+              <div className="absolute right-0 top-full mt-2 w-80 max-w-[calc(100vw-24px)] p-3 rounded-2xl bg-white border border-[#E5E0D8] shadow-2xl z-50 animate-in fade-in">
                 <div className="flex items-center justify-between pb-2 border-b border-[#E5E0D8]">
                   <div className="font-serif font-bold text-sm text-[#4A4A3A] flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-[#5A634E]" />
@@ -254,12 +260,12 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="role-switcher-btn"
             onClick={onOpenRoleSwitcher}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold transition hover:brightness-95 ${currentRole.color}`}
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border text-xs font-semibold transition hover:brightness-95 ${currentRole.color}`}
             title="Switch User Role & Profile"
+            aria-label="Switch User Role"
           >
-            <RoleIcon className="w-3.5 h-3.5" />
+            <RoleIcon className="w-3.5 h-3.5 flex-shrink-0" />
             <span className="hidden sm:inline">{currentRole.label}</span>
-            <span className="sm:hidden">{currentUser.name.split(' ')[0]}</span>
             <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
 
@@ -267,8 +273,9 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="user-account-btn"
             onClick={() => onOpenAuth && onOpenAuth('account')}
-            className="flex items-center gap-1.5 p-1 sm:px-2.5 sm:py-1 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] transition"
+            className="flex items-center gap-1.5 p-1 sm:px-2.5 sm:py-1 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] border border-[#E5E0D8] transition flex-shrink-0"
             title="Account Settings & Security"
+            aria-label="User Account"
           >
             <img
               src={currentUser.avatar}

@@ -390,10 +390,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200 overflow-y-auto">
+      <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh] my-auto">
         {/* Modal Header */}
-        <div className="p-5 sm:p-6 border-b border-[#E5E0D8] flex items-center justify-between bg-white">
+        <div className="p-4 sm:p-6 border-b border-[#E5E0D8] flex items-center justify-between bg-white">
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs uppercase tracking-wider font-bold text-[#5A634E] bg-[#EDF0E9] px-2 py-0.5 rounded-full border border-[#D8DFD2]">

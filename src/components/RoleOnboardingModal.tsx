@@ -103,10 +103,10 @@ export const RoleOnboardingModal: React.FC<RoleOnboardingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="w-full max-w-2xl bg-[#FDFBF7] border border-[#E5E0D8] rounded-[36px] shadow-2xl overflow-hidden flex flex-col max-h-[95vh]">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200 overflow-y-auto">
+      <div className="w-full max-w-2xl bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[36px] shadow-2xl overflow-hidden flex flex-col max-h-[95vh] my-auto">
         {/* Onboarding Header */}
-        <div className="p-6 sm:p-8 text-center border-b border-[#E5E0D8] bg-white">
+        <div className="p-4 sm:p-7 text-center border-b border-[#E5E0D8] bg-white">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF0E9] border border-[#D8DFD2] text-xs font-bold text-[#5A634E] mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Welcome to LearnX, {currentUser.name}!</span>

@@ -232,7 +232,7 @@ export const PaymentsView: React.FC<PaymentsViewProps> = ({
                     <img
                       src={qrCodeDataUrl}
                       alt="UPI Payment QR"
-                      className="w-48 h-48 sm:w-56 sm:h-56 mx-auto"
+                      className="w-40 h-40 sm:w-56 sm:h-56 mx-auto object-contain"
                     />
                   </div>
                 )}
@@ -493,7 +493,7 @@ export const PaymentsView: React.FC<PaymentsViewProps> = ({
       {/* Official Receipt Modal */}
       {selectedReceipt && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="w-full max-w-md bg-[#FDFBF7] text-[#4A4A3A] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 sm:p-7 space-y-4 my-8 animate-in fade-in zoom-in-95">
+          <div className="w-full max-w-md bg-[#FDFBF7] text-[#4A4A3A] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-7 space-y-4 my-auto max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
             {/* Header */}
             <div className="flex items-start justify-between border-b border-[#E5E0D8] pb-3">
               <div>

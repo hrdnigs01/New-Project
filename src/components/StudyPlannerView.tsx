@@ -298,8 +298,8 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
 
       {/* Add Task Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="w-full max-w-md bg-white border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 sm:p-7 space-y-4 animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-md bg-white border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <h3 className="text-base font-serif font-bold text-[#4A4A3A] flex items-center gap-2">
                 <CalendarIcon className="w-4 h-4 text-[#5A634E]" />

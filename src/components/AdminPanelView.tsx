@@ -181,56 +181,56 @@ export const AdminPanelView: React.FC<AdminPanelViewProps> = ({ currentUser, onR
 
       {/* KPI Stats Cards */}
       {metrics && (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="p-5 rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+          <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
             <div className="flex items-center justify-between text-xs text-[#8B8374]">
               <span>Platform Revenue</span>
               <DollarSign className="w-4 h-4 text-[#5A634E]" />
             </div>
-            <div className="text-xl sm:text-2xl font-serif font-bold text-[#4A4A3A]">
+            <div className="text-lg sm:text-2xl font-serif font-bold text-[#4A4A3A]">
               ₹{metrics.totalRevenue.toLocaleString('en-IN')}
             </div>
-            <div className="text-[11px] text-[#5A634E] font-semibold">
-              ₹{metrics.totalCommissions.toLocaleString('en-IN')} (15% Commission Pool)
+            <div className="text-[10px] sm:text-[11px] text-[#5A634E] font-semibold truncate">
+              ₹{metrics.totalCommissions.toLocaleString('en-IN')} (15% Pool)
             </div>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
+          <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
             <div className="flex items-center justify-between text-xs text-[#8B8374]">
               <span>Admissions</span>
               <TrendingUp className="w-4 h-4 text-[#5A634E]" />
             </div>
-            <div className="text-xl sm:text-2xl font-serif font-bold text-[#4A4A3A]">
+            <div className="text-lg sm:text-2xl font-serif font-bold text-[#4A4A3A]">
               {metrics.totalAdmissions} Total
             </div>
-            <div className="text-[11px] text-[#5A634E] font-semibold">
+            <div className="text-[10px] sm:text-[11px] text-[#5A634E] font-semibold truncate">
               {metrics.enrolledAdmissions} Paid & Enrolled
             </div>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
+          <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
             <div className="flex items-center justify-between text-xs text-[#8B8374]">
               <span>Tutors & Centres</span>
               <Building2 className="w-4 h-4 text-[#5A634E]" />
             </div>
-            <div className="text-xl sm:text-2xl font-serif font-bold text-[#4A4A3A]">
+            <div className="text-lg sm:text-2xl font-serif font-bold text-[#4A4A3A]">
               {metrics.totalCentres + metrics.totalTutors} Active
             </div>
-            <div className="text-[11px] text-[#7A7468] font-semibold">
-              {metrics.totalCentres} Coaching Hubs • {metrics.totalTutors} Tutors
+            <div className="text-[10px] sm:text-[11px] text-[#7A7468] font-semibold truncate">
+              {metrics.totalCentres} Hubs • {metrics.totalTutors} Tutors
             </div>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
+          <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-1 shadow-xs">
             <div className="flex items-center justify-between text-xs text-[#8B8374]">
               <span>Active Students</span>
               <Users className="w-4 h-4 text-[#5A634E]" />
             </div>
-            <div className="text-xl sm:text-2xl font-serif font-bold text-[#4A4A3A]">
+            <div className="text-lg sm:text-2xl font-serif font-bold text-[#4A4A3A]">
               {metrics.totalStudents}
             </div>
-            <div className="text-[11px] text-[#7A7468] font-semibold">
-              {metrics.marketplaceListings} Marketplace Listings
+            <div className="text-[10px] sm:text-[11px] text-[#7A7468] font-semibold truncate">
+              {metrics.marketplaceListings} Listings
             </div>
           </div>
         </div>
@@ -307,6 +307,113 @@ export const AdminPanelView: React.FC<AdminPanelViewProps> = ({ currentUser, onR
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* Tab: AI System & Diagnostics */}
+      {activeTab === 'ai-status' && (
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] shadow-xs">
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-sm sm:text-base font-serif font-bold text-[#4A4A3A]">
+                  AI Tutor Engine & Model Health
+                </h3>
+                <span
+                  className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                    aiStatus?.status === 'connected'
+                      ? 'bg-[#D5F5E3] text-[#1D8348] border-[#ABEBC6]'
+                      : aiStatus?.status === 'degraded'
+                      ? 'bg-[#FEF9E7] text-[#B7950B] border-[#F9E79F]'
+                      : 'bg-[#FADBD8] text-[#922B21] border-[#F5B7B1]'
+                  }`}
+                >
+                  {aiStatus?.status || 'Active'}
+                </span>
+              </div>
+              <p className="text-xs text-[#8B8374] mt-0.5">
+                Active Model: <span className="font-mono text-[#5A634E] font-semibold">{aiStatus?.activeModel || 'gemini-2.5-flash'}</span> • Fallbacks: {aiStatus?.fallbackModels?.join(', ') || 'gemini-1.5-flash'}
+              </p>
+            </div>
+
+            <button
+              onClick={handleRunAiProbe}
+              disabled={isProbing}
+              className="px-4 py-2 rounded-full bg-[#5A634E] hover:bg-[#484F3E] text-white text-xs font-bold transition flex items-center gap-1.5 self-start sm:self-auto shadow-xs disabled:opacity-50"
+            >
+              {isProbing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Activity className="w-3.5 h-3.5" />}
+              <span>{isProbing ? 'Probing Engine...' : 'Run Live Diagnostic Probe'}</span>
+            </button>
+          </div>
+
+          {/* AI Metrics Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#E5E0D8] space-y-0.5 shadow-xs">
+              <span className="text-[11px] text-[#8B8374]">Total Requests</span>
+              <div className="text-lg sm:text-xl font-serif font-bold text-[#4A4A3A]">{aiStatus?.totalRequests ?? 0}</div>
+            </div>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#E5E0D8] space-y-0.5 shadow-xs">
+              <span className="text-[11px] text-[#8B8374]">Successful</span>
+              <div className="text-lg sm:text-xl font-serif font-bold text-[#1D8348]">{aiStatus?.successfulRequests ?? 0}</div>
+            </div>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#E5E0D8] space-y-0.5 shadow-xs">
+              <span className="text-[11px] text-[#8B8374]">Failed / Fallback</span>
+              <div className="text-lg sm:text-xl font-serif font-bold text-[#922B21]">{aiStatus?.failedRequests ?? 0}</div>
+            </div>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#E5E0D8] space-y-0.5 shadow-xs">
+              <span className="text-[11px] text-[#8B8374]">Round-trip Latency</span>
+              <div className="text-lg sm:text-xl font-serif font-bold text-[#5A634E]">{aiStatus?.latencyMs ? `${aiStatus.latencyMs}ms` : '<350ms'}</div>
+            </div>
+          </div>
+
+          {/* Probe Result Box */}
+          {aiProbeResult && (
+            <div className="p-4 rounded-2xl bg-[#F5F2ED] border border-[#E5E0D8] space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-[#4A4A3A]">Probe Execution Output</span>
+                <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${aiProbeResult.success ? 'bg-[#D5F5E3] text-[#1D8348]' : 'bg-[#FADBD8] text-[#922B21]'}`}>
+                  {aiProbeResult.success ? 'Passed' : 'Failed'}
+                </span>
+              </div>
+              <pre className="text-[11px] font-mono p-3 bg-white rounded-xl border border-[#E5E0D8] overflow-x-auto text-[#4A4A3A] max-h-48">
+                {JSON.stringify(aiProbeResult, null, 2)}
+              </pre>
+            </div>
+          )}
+
+          {/* Live Doubt Engine Test */}
+          <div className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-3 shadow-xs">
+            <h4 className="text-xs sm:text-sm font-serif font-bold text-[#4A4A3A]">Interactive Test Queries</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                'Explain Archimedes principle with everyday examples for Class 9',
+                'State Ohm law formula and explain SI unit of resistance',
+                'What is double circulation in human heart and why is it necessary?',
+                'Define refractive index of medium with respect to vacuum',
+              ].map((q) => (
+                <button
+                  key={q}
+                  onClick={() => handleRunQuestionTest(q)}
+                  disabled={Boolean(testQuestionRunning)}
+                  className="p-2.5 rounded-xl bg-[#FDFBF7] hover:bg-[#F5F2ED] border border-[#E5E0D8] text-left text-xs text-[#4A4A3A] transition flex items-center justify-between gap-2 disabled:opacity-50"
+                >
+                  <span className="truncate">{q}</span>
+                  {testQuestionRunning === q ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin text-[#5A634E] flex-shrink-0" />
+                  ) : (
+                    <Play className="w-3 h-3 text-[#5A634E] flex-shrink-0 fill-[#5A634E]" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {testQuestionAnswer && (
+              <div className="p-3.5 rounded-xl bg-[#EDF0E9] border border-[#D8DFD2] space-y-1.5 text-xs">
+                <div className="font-bold text-[#4A4A3A]">Q: {testQuestionAnswer.q}</div>
+                <div className="text-[#5A634E] whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto">{testQuestionAnswer.a}</div>
+              </div>
+            )}
           </div>
         </div>
       )}

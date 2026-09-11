@@ -437,16 +437,16 @@ Answer: C`;
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#4A4A3A] pb-24 font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Top Banner & Navigation Header */}
-      <div className="bg-white border-b border-[#E8E4D9] sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+      <div className="bg-white border border-[#E8E4D9] rounded-2xl sm:rounded-3xl shadow-xs mb-4 sm:mb-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 py-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#5A634E] text-white flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-[#5A634E] text-white flex items-center justify-center shadow-xs flex-shrink-0">
                 <Calculator className="w-5 h-5" />
               </div>
               <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-xl font-bold text-[#2A2E24] tracking-tight">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h1 className="text-lg sm:text-xl font-bold text-[#2A2E24] tracking-tight">
                     NCERT Class 11 Mathematics
                   </h1>
                   <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-[#5A634E]/10 text-[#5A634E]">
@@ -494,11 +494,11 @@ Answer: C`;
           </div>
 
           {/* Sub-Navigation Tabs */}
-          <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 scrollbar-none">
+          <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 no-scrollbar">
             <button
               id="tab-math-quiz"
               onClick={() => setActiveTab('quiz')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all ${
                 activeTab === 'quiz'
                   ? 'bg-[#5A634E] text-white shadow-xs'
                   : 'bg-[#F4F1EA] text-[#6A6A5A] hover:text-[#2A2E24] hover:bg-[#EAE5D9]'
@@ -510,7 +510,7 @@ Answer: C`;
             <button
               id="tab-math-notes"
               onClick={() => setActiveTab('notes')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all ${
                 activeTab === 'notes'
                   ? 'bg-[#5A634E] text-white shadow-xs'
                   : 'bg-[#F4F1EA] text-[#6A6A5A] hover:text-[#2A2E24] hover:bg-[#EAE5D9]'
@@ -522,7 +522,7 @@ Answer: C`;
             <button
               id="tab-math-formulas"
               onClick={() => setActiveTab('formulas')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all ${
                 activeTab === 'formulas'
                   ? 'bg-[#5A634E] text-white shadow-xs'
                   : 'bg-[#F4F1EA] text-[#6A6A5A] hover:text-[#2A2E24] hover:bg-[#EAE5D9]'
@@ -534,7 +534,7 @@ Answer: C`;
             <button
               id="tab-math-upload"
               onClick={() => setActiveTab('custom_upload')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all ${
                 activeTab === 'custom_upload'
                   ? 'bg-[#5A634E] text-white shadow-xs'
                   : 'bg-[#F4F1EA] text-[#6A6A5A] hover:text-[#2A2E24] hover:bg-[#EAE5D9]'

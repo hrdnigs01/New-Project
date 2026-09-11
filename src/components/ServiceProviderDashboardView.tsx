@@ -224,10 +224,10 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
       )}
 
       {/* Header Profile & Quick Actions */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-[#D5F5E3] text-[#1D8348] flex items-center justify-center flex-shrink-0 border border-[#ABEBC6]">
-            <Briefcase className="w-7 h-7" />
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#D5F5E3] text-[#1D8348] flex items-center justify-center flex-shrink-0 border border-[#ABEBC6]">
+            <Briefcase className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
@@ -356,8 +356,8 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
       </div>
 
       {/* Student Admissions & Booking Inquiries */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
               Student Admission Requests & Inquiries
@@ -366,14 +366,14 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
               Review student applications, approve admissions, and verify UPI payments
             </p>
           </div>
-          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#EDF0E9] text-[#5A634E]">
+          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#EDF0E9] text-[#5A634E] self-start sm:self-auto">
             {providerData?.admissions?.length || 0} Total Requests
           </span>
         </div>
 
         {providerData?.admissions && providerData.admissions.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+          <div className="overflow-x-auto -mx-1 sm:mx-0">
+            <table className="w-full text-left text-xs min-w-[640px]">
               <thead className="border-b border-[#E5E0D8] text-[#8B8374] uppercase text-[10px] tracking-wider font-semibold">
                 <tr>
                   <th className="py-3 px-3">Admission ID</th>
@@ -459,7 +459,7 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
       </div>
 
       {/* Services & Guidance Offerings */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
@@ -517,7 +517,7 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
       </div>
 
       {/* Payout & Bank Settlement History */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
@@ -558,8 +558,8 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
 
       {/* MODAL 1: Add Service Offering */}
       {showAddServiceModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">Add Service Offering</h3>
               <button onClick={() => setShowAddServiceModal(false)} className="p-1.5 rounded-full bg-[#F5F2ED]">
@@ -663,8 +663,8 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
 
       {/* MODAL 2: KYC & Bank Details */}
       {showKycModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <div>
                 <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">Service Provider KYC & Bank</h3>
@@ -762,8 +762,8 @@ export const ServiceProviderDashboardView: React.FC<ServiceProviderDashboardView
 
       {/* MODAL 3: Withdraw Payout */}
       {showWithdrawModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">Withdraw Net Tuition Earnings</h3>
               <button onClick={() => setShowWithdrawModal(false)} className="p-1.5 rounded-full bg-[#F5F2ED]">

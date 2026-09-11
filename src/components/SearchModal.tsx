@@ -115,10 +115,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         </div>
 
         {/* Tab switchers */}
-        <div className="flex border-b border-[#E5E0D8] px-4 py-2 gap-2 bg-[#F5F2ED]/50">
+        <div className="flex border-b border-[#E5E0D8] px-4 py-2 gap-2 bg-[#F5F2ED]/50 overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveTab('all')}
-            className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition ${
+            className={`px-3.5 py-1.5 text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition ${
               activeTab === 'all'
                 ? 'bg-[#5A634E] text-white shadow-xs'
                 : 'text-[#7A7468] hover:text-[#4A4A3A]'
@@ -128,7 +128,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           </button>
           <button
             onClick={handleWebSearch}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full transition ${
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition ${
               activeTab === 'web'
                 ? 'bg-[#5A634E] text-white shadow-xs'
                 : 'text-[#7A7468] hover:text-[#4A4A3A]'

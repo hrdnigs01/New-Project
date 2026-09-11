@@ -460,7 +460,7 @@ export const StudyMaterialView: React.FC<StudyMaterialViewProps> = ({
           </div>
 
           {/* Section Filter Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin text-xs sm:text-sm">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs sm:text-sm">
             {[
               { id: 'all', label: 'All Content', icon: BookOpen },
               { id: 'mcq', label: `MCQs (${totalMcqCount})`, icon: CheckCircle2 },
@@ -477,7 +477,7 @@ export const StudyMaterialView: React.FC<StudyMaterialViewProps> = ({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as TabCategory)}
-                  className={`px-3.5 py-2 rounded-xl font-medium whitespace-nowrap flex items-center gap-1.5 transition-all ${
+                  className={`px-3.5 py-2 rounded-xl font-medium whitespace-nowrap flex-shrink-0 flex items-center gap-1.5 transition-all ${
                     isActive
                       ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-200'
                       : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
@@ -750,7 +750,7 @@ export const StudyMaterialView: React.FC<StudyMaterialViewProps> = ({
                     )}
                   </div>
 
-                  <div className="px-6 space-y-8">
+                  <div className="px-3 sm:px-6 space-y-6 sm:space-y-8">
                     {/* 1. MCQS SECTION */}
                     {showMcq && filteredMcqs.length > 0 && (
                       <div className="space-y-4">
