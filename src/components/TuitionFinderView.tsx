@@ -449,8 +449,8 @@ export const TuitionFinderView: React.FC<TuitionFinderViewProps> = ({
 
       {/* Tuition Detail Modal */}
       {selectedTuition && !isApplying && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="w-full max-w-lg bg-white border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 my-8">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-lg bg-white border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-start justify-between gap-2 border-b border-[#E5E0D8] pb-3">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#5A634E]">
@@ -525,8 +525,8 @@ export const TuitionFinderView: React.FC<TuitionFinderViewProps> = ({
 
       {/* Admission Application Form Modal */}
       {isApplying && selectedTuition && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="w-full max-w-md bg-white border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 my-8">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-md bg-white border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-start justify-between border-b border-[#E5E0D8] pb-3">
               <div>
                 <span className="text-[10px] font-bold text-[#5A634E] uppercase">Apply for Batch</span>
@@ -628,8 +628,8 @@ export const TuitionFinderView: React.FC<TuitionFinderViewProps> = ({
 
       {/* QR Referral Modal */}
       {activeQrModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="w-full max-w-sm bg-white border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 text-center space-y-4 animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-sm bg-white border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 text-center space-y-4 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-2">
               <span className="text-xs font-mono font-semibold text-[#5A634E]">{activeQrModal.id}</span>
               <button

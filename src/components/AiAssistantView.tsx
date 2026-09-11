@@ -174,38 +174,38 @@ export const AiAssistantView: React.FC<AiAssistantViewProps> = ({
   ];
 
   return (
-    <div className="space-y-4 pb-12 flex flex-col h-[calc(100vh-140px)] min-h-[580px]">
+    <div className="space-y-3 sm:space-y-4 flex flex-col h-[calc(100dvh-12rem)] sm:h-[calc(100vh-140px)] min-h-[440px] max-w-full overflow-hidden">
       {/* Header with Mode Selectors */}
-      <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#E5E0D8] flex flex-col sm:flex-row sm:items-center justify-between gap-3 flex-shrink-0 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-[#EDF0E9] flex items-center justify-center text-[#5A634E] font-bold shadow-xs">
-            <Brain className="w-5 h-5" />
+      <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 flex-shrink-0 shadow-sm">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-[#EDF0E9] flex items-center justify-center text-[#5A634E] font-bold shadow-xs flex-shrink-0">
+            <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <div>
-            <h1 className="text-sm sm:text-base font-serif font-bold text-[#4A4A3A] flex items-center gap-2">
+            <h1 className="text-xs sm:text-base font-serif font-bold text-[#4A4A3A] flex items-center gap-1.5 sm:gap-2">
               <span>LearnX AI Study Assistant</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#EDF0E9] text-[#5A634E] border border-[#D8DFD2] font-mono">
+              <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-[#EDF0E9] text-[#5A634E] border border-[#D8DFD2] font-mono">
                 Gemini 3.8
               </span>
             </h1>
-            <p className="text-[11px] text-[#8B8374]">
+            <p className="text-[10px] sm:text-[11px] text-[#8B8374]">
               Personalized mentor for Class {classLevel} NCERT syllabus
             </p>
           </div>
         </div>
 
         {/* Search grounding toggle & reset */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 self-end sm:self-auto">
           <button
             onClick={() => setUseGoogleSearch(!useGoogleSearch)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition border ${
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition border ${
               useGoogleSearch
                 ? 'bg-[#EDF0E9] text-[#5A634E] border-[#5A634E]/30 shadow-xs'
                 : 'bg-[#F5F2ED] text-[#7A7468] border-[#E5E0D8] hover:bg-[#EBE7DF]'
             }`}
           >
             <Globe className="w-3.5 h-3.5" />
-            <span>Google Web Search {useGoogleSearch ? 'ON' : 'OFF'}</span>
+            <span>Web Search {useGoogleSearch ? 'ON' : 'OFF'}</span>
           </button>
 
           <button
@@ -219,7 +219,7 @@ export const AiAssistantView: React.FC<AiAssistantViewProps> = ({
                 },
               ]);
             }}
-            className="p-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] text-[#7A7468] border border-[#E5E0D8] transition"
+            className="p-1.5 sm:p-2 rounded-full bg-[#F5F2ED] hover:bg-[#EBE7DF] text-[#7A7468] border border-[#E5E0D8] transition"
             title="Clear Chat History"
           >
             <RotateCcw className="w-3.5 h-3.5" />

@@ -225,10 +225,10 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
       )}
 
       {/* Header Profile & Quick Actions */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-[#FDEBD0] text-[#AF601A] flex items-center justify-center flex-shrink-0 border border-[#FAD7A0]">
-            <Store className="w-7 h-7" />
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#FDEBD0] text-[#AF601A] flex items-center justify-center flex-shrink-0 border border-[#FAD7A0]">
+            <Store className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
@@ -363,8 +363,8 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
       </div>
 
       {/* Active Orders Table */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
               Student Orders & Fulfillment
@@ -373,14 +373,14 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
               Manage order status, dispatch parcels, and verify automatic 85% payouts
             </p>
           </div>
-          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#F5F2ED] text-[#5A634E]">
+          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#F5F2ED] text-[#5A634E] self-start sm:self-auto">
             {sellerData?.orders?.length || 0} Total Orders
           </span>
         </div>
 
         {sellerData?.orders && sellerData.orders.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+          <div className="overflow-x-auto -mx-1 sm:mx-0">
+            <table className="w-full text-left text-xs min-w-[640px]">
               <thead className="border-b border-[#E5E0D8] text-[#8B8374] uppercase text-[10px] tracking-wider font-semibold">
                 <tr>
                   <th className="py-3 px-3">Order ID</th>
@@ -463,7 +463,7 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
       </div>
 
       {/* Active Catalog & Inventory */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
@@ -519,7 +519,7 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
       </div>
 
       {/* Payout & Settlement History */}
-      <div className="p-6 rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-white border border-[#E5E0D8] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">
@@ -562,8 +562,8 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
 
       {/* MODAL 1: Add Product */}
       {showAddProductModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">List New Product</h3>
               <button
@@ -671,8 +671,8 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
 
       {/* MODAL 2: KYC & Bank Details */}
       {showKycModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <div>
                 <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">Seller KYC & Bank Account</h3>
@@ -770,8 +770,8 @@ export const SellerDashboardView: React.FC<SellerDashboardViewProps> = ({
 
       {/* MODAL 3: Withdraw Payout */}
       {showWithdrawModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl p-6 space-y-4">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="w-full max-w-md bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl p-4 sm:p-6 space-y-4 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
               <h3 className="font-serif font-bold text-lg text-[#4A4A3A]">Withdraw Payout Earnings</h3>
               <button onClick={() => setShowWithdrawModal(false)} className="p-1.5 rounded-full bg-[#F5F2ED]">

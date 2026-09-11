@@ -15,6 +15,11 @@ import {
   Briefcase,
   UserCheck,
   FileText,
+  Menu,
+  X,
+  ChevronRight,
+  Smartphone,
+  Grid,
 } from 'lucide-react';
 import {
   User,
@@ -107,6 +112,7 @@ export default function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup' | 'account'>('login');
   const [isRoleOnboardingOpen, setIsRoleOnboardingOpen] = useState(false);
+  const [isMobileMoreOpen, setIsMobileMoreOpen] = useState(false);
 
   // Initial Data Fetch
   const fetchCurrentUser = async () => {
@@ -406,23 +412,23 @@ export default function App() {
       )}
 
       {isSeller && (
-        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[57px] z-30 shadow-2xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4">
+        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[53px] sm:top-[57px] z-30 shadow-2xs">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#FDEBD0] text-[#AF601A] flex items-center justify-center font-bold text-sm">
+              <div className="w-7 h-7 rounded-lg bg-[#FDEBD0] text-[#AF601A] flex items-center justify-center font-bold text-sm flex-shrink-0">
                 🛍️
               </div>
-              <div>
-                <span className="text-xs font-serif font-bold text-[#4A4A3A]">
+              <div className="min-w-0">
+                <span className="text-xs font-serif font-bold text-[#4A4A3A] truncate block">
                   {currentUser.kycDetails?.businessName || currentUser.name} (Seller Dashboard)
                 </span>
-                <p className="text-[11px] text-[#7A7468]">
+                <p className="text-[11px] text-[#7A7468] truncate">
                   LearnX Bookstore & Depot • 15% Platform Commission Model
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
               <button
                 onClick={() => {
                   setAuthModalMode('account');
@@ -444,23 +450,23 @@ export default function App() {
       )}
 
       {isServiceProvider && (
-        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[57px] z-30 shadow-2xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4">
+        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[53px] sm:top-[57px] z-30 shadow-2xs">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#D5F5E3] text-[#1D8348] flex items-center justify-center font-bold text-sm">
+              <div className="w-7 h-7 rounded-lg bg-[#D5F5E3] text-[#1D8348] flex items-center justify-center font-bold text-sm flex-shrink-0">
                 🧑‍🏫
               </div>
-              <div>
-                <span className="text-xs font-serif font-bold text-[#4A4A3A]">
+              <div className="min-w-0">
+                <span className="text-xs font-serif font-bold text-[#4A4A3A] truncate block">
                   {currentUser.name} (Service Provider & Tutor Portal)
                 </span>
-                <p className="text-[11px] text-[#7A7468]">
+                <p className="text-[11px] text-[#7A7468] truncate">
                   Tutoring, PPT/Design & Project Guidance • 15% One-Time Admission Fee
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
               <button
                 onClick={() => {
                   setAuthModalMode('account');
@@ -482,23 +488,23 @@ export default function App() {
       )}
 
       {isAdmin && (
-        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[57px] z-30 shadow-2xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4">
+        <div className="border-b border-[#E5E0D8] bg-[#FDFBF7] sticky top-[53px] sm:top-[57px] z-30 shadow-2xs">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#EAECEE] text-[#2C3E50] flex items-center justify-center font-bold text-sm">
+              <div className="w-7 h-7 rounded-lg bg-[#EAECEE] text-[#2C3E50] flex items-center justify-center font-bold text-sm flex-shrink-0">
                 🛡️
               </div>
-              <div>
-                <span className="text-xs font-serif font-bold text-[#4A4A3A]">
+              <div className="min-w-0">
+                <span className="text-xs font-serif font-bold text-[#4A4A3A] truncate block">
                   LearnX Central Administration & Finance Control
                 </span>
-                <p className="text-[11px] text-[#7A7468]">
+                <p className="text-[11px] text-[#7A7468] truncate">
                   15% Treasury Ledger, KYC Approvals, Gateway Settlements & Moderation
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
               <button
                 onClick={() => setIsRoleSwitcherOpen(true)}
                 className="px-3 py-1.5 rounded-xl bg-[#5A634E] text-white text-xs font-semibold hover:bg-[#484F3E] transition shadow-xs"
@@ -764,48 +770,282 @@ export default function App() {
         </main>
       </div>
 
-      {/* Mobile Bottom Navigation Bar - Only for Students (Anchored, 48px+ touch targets) */}
+      {/* Mobile Bottom Navigation Bar - For Students (Anchored, 48px+ touch targets) */}
       {isStudent && (
         <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-lg border-t border-[#E5E0D8] safe-bottom px-1 py-1 shadow-lg">
-          <div className="grid grid-cols-6 items-center">
-            {studentNavItems.slice(0, 5).map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
-                    isActive ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
-                  }`}
-                >
-                  <div className={`p-1 rounded-lg transition relative ${isActive ? 'bg-[#EDF0E9]' : ''}`}>
-                    <Icon className="w-5 h-5" />
-                    {item.badge && (
-                      <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#5A634E]" />
-                    )}
-                  </div>
-                  <span className="text-[10px] mt-0.5 leading-tight font-medium truncate max-w-full text-center">
-                    {item.shortLabel || item.label}
-                  </span>
-                </button>
-              );
-            })}
-
-            {/* Pay UPI tab on mobile */}
+          <div className="grid grid-cols-5 items-center">
+            {/* Tab 1: Home */}
             <button
-              onClick={() => setActiveTab('payments')}
+              onClick={() => {
+                setActiveTab('home');
+                setIsMobileMoreOpen(false);
+              }}
               className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
-                activeTab === 'payments' ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
+                activeTab === 'home' ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
               }`}
             >
-              <div className={`p-1 rounded-lg transition ${activeTab === 'payments' ? 'bg-[#EDF0E9]' : ''}`}>
-                <CreditCard className="w-5 h-5" />
+              <div className={`p-1 rounded-lg transition ${activeTab === 'home' ? 'bg-[#EDF0E9]' : ''}`}>
+                <Home className="w-5 h-5" />
               </div>
-              <span className="text-[10px] mt-0.5 leading-tight font-medium">Pay UPI</span>
+              <span className="text-[10px] mt-0.5 leading-tight font-medium">Home</span>
+            </button>
+
+            {/* Tab 2: NCERT */}
+            <button
+              onClick={() => {
+                setActiveTab('learning');
+                setIsMobileMoreOpen(false);
+              }}
+              className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
+                activeTab === 'learning' ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
+              }`}
+            >
+              <div className={`p-1 rounded-lg transition ${activeTab === 'learning' ? 'bg-[#EDF0E9]' : ''}`}>
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] mt-0.5 leading-tight font-medium">NCERT</span>
+            </button>
+
+            {/* Tab 3: Study Material & Quizzes */}
+            <button
+              onClick={() => {
+                setActiveTab('materials');
+                setIsMobileMoreOpen(false);
+              }}
+              className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
+                activeTab === 'materials' ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
+              }`}
+            >
+              <div className={`p-1 rounded-lg transition relative ${activeTab === 'materials' ? 'bg-[#EDF0E9]' : ''}`}>
+                <FileText className="w-5 h-5" />
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#5A634E]" />
+              </div>
+              <span className="text-[10px] mt-0.5 leading-tight font-medium">Notes/Quiz</span>
+            </button>
+
+            {/* Tab 4: AI Doubt Solver */}
+            <button
+              onClick={() => {
+                setActiveTab('ai-assistant');
+                setIsMobileMoreOpen(false);
+              }}
+              className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
+                activeTab === 'ai-assistant' ? 'text-[#5A634E] font-bold' : 'text-[#7A7468] hover:text-[#4A4A3A]'
+              }`}
+            >
+              <div className={`p-1 rounded-lg transition relative ${activeTab === 'ai-assistant' ? 'bg-[#EDF0E9]' : ''}`}>
+                <Brain className="w-5 h-5" />
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#AF601A]" />
+              </div>
+              <span className="text-[10px] mt-0.5 leading-tight font-medium">AI Doubt</span>
+            </button>
+
+            {/* Tab 5: More Tools & Services */}
+            <button
+              onClick={() => setIsMobileMoreOpen(!isMobileMoreOpen)}
+              className={`min-h-[48px] flex flex-col items-center justify-center p-1 rounded-xl transition ${
+                ['planner', 'tuition', 'marketplace', 'payments'].includes(activeTab) || isMobileMoreOpen
+                  ? 'text-[#5A634E] font-bold'
+                  : 'text-[#7A7468] hover:text-[#4A4A3A]'
+              }`}
+            >
+              <div
+                className={`p-1 rounded-lg transition relative ${
+                  ['planner', 'tuition', 'marketplace', 'payments'].includes(activeTab) || isMobileMoreOpen
+                    ? 'bg-[#EDF0E9]'
+                    : ''
+                }`}
+              >
+                {activeTab === 'planner' ? (
+                  <Calendar className="w-5 h-5" />
+                ) : activeTab === 'tuition' ? (
+                  <Building2 className="w-5 h-5" />
+                ) : activeTab === 'marketplace' ? (
+                  <ShoppingBag className="w-5 h-5" />
+                ) : activeTab === 'payments' ? (
+                  <CreditCard className="w-5 h-5" />
+                ) : (
+                  <Grid className="w-5 h-5" />
+                )}
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#5A634E]" />
+              </div>
+              <span className="text-[10px] mt-0.5 leading-tight font-medium truncate max-w-full">
+                {activeTab === 'planner'
+                  ? 'Planner'
+                  : activeTab === 'tuition'
+                  ? 'Tuition'
+                  : activeTab === 'marketplace'
+                  ? 'Depot'
+                  : activeTab === 'payments'
+                  ? 'Pay UPI'
+                  : 'More'}
+              </span>
             </button>
           </div>
         </nav>
+      )}
+
+      {/* Mobile Bottom Quick Actions - For Sellers, Service Providers, Admins */}
+      {!isStudent && (
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-lg border-t border-[#E5E0D8] safe-bottom px-3 py-2 shadow-lg flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <button
+              onClick={() => {
+                setAuthModalMode('account');
+                setIsAuthModalOpen(true);
+              }}
+              className="px-3 py-1.5 rounded-xl border border-[#E5E0D8] bg-white text-xs font-semibold text-[#4A4A3A] hover:bg-[#F5F2ED] transition shadow-xs truncate flex-1 text-center"
+            >
+              Account
+            </button>
+            <button
+              onClick={() => setIsRoleSwitcherOpen(true)}
+              className="px-3 py-1.5 rounded-xl bg-[#5A634E] text-white text-xs font-semibold hover:bg-[#484F3E] transition shadow-xs truncate flex-1 text-center"
+            >
+              Switch Role
+            </button>
+          </div>
+        </nav>
+      )}
+
+      {/* Mobile 'More Tools' Slide-Up Sheet for Students */}
+      {isMobileMoreOpen && isStudent && (
+        <div className="md:hidden fixed inset-0 z-50 flex flex-col justify-end animate-in fade-in duration-200">
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
+            onClick={() => setIsMobileMoreOpen(false)}
+          />
+          <div className="relative bg-[#FDFBF7] border-t border-[#E5E0D8] rounded-t-[32px] p-5 safe-bottom shadow-2xl z-10 max-h-[80vh] overflow-y-auto space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-xl bg-[#EDF0E9] text-[#5A634E] flex items-center justify-center font-bold text-sm">
+                  ⚡
+                </span>
+                <div>
+                  <h3 className="font-serif font-bold text-sm text-[#4A4A3A]">All LearnX Student Tools</h3>
+                  <p className="text-[11px] text-[#8B8374]">Select any feature to open immediately</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsMobileMoreOpen(false)}
+                className="p-1.5 rounded-full bg-[#F5F2ED] text-[#7A7468] hover:text-[#4A4A3A]"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Quick Tools Grid */}
+            <div className="grid grid-cols-2 gap-2.5">
+              <button
+                onClick={() => {
+                  setActiveTab('planner');
+                  setIsMobileMoreOpen(false);
+                }}
+                className={`p-3 rounded-2xl border text-left transition flex flex-col justify-between ${
+                  activeTab === 'planner'
+                    ? 'bg-[#EDF0E9] border-[#5A634E] text-[#5A634E]'
+                    : 'bg-white border-[#E5E0D8] text-[#4A4A3A] hover:bg-[#F5F2ED]'
+                }`}
+              >
+                <div className="w-8 h-8 rounded-xl bg-[#EAF2F8] text-[#2874A6] flex items-center justify-center mb-2">
+                  <Calendar className="w-4 h-4" />
+                </div>
+                <div className="font-bold text-xs">Study Planner</div>
+                <div className="text-[10px] text-[#8B8374] mt-0.5">Timetable & Pomodoro</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveTab('tuition');
+                  setIsMobileMoreOpen(false);
+                }}
+                className={`p-3 rounded-2xl border text-left transition flex flex-col justify-between ${
+                  activeTab === 'tuition'
+                    ? 'bg-[#EDF0E9] border-[#5A634E] text-[#5A634E]'
+                    : 'bg-white border-[#E5E0D8] text-[#4A4A3A] hover:bg-[#F5F2ED]'
+                }`}
+              >
+                <div className="w-8 h-8 rounded-xl bg-[#FDEBD0] text-[#AF601A] flex items-center justify-center mb-2">
+                  <Building2 className="w-4 h-4" />
+                </div>
+                <div className="font-bold text-xs">Tuition Finder</div>
+                <div className="text-[10px] text-[#8B8374] mt-0.5">Centres & Home Tutors</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveTab('marketplace');
+                  setIsMobileMoreOpen(false);
+                }}
+                className={`p-3 rounded-2xl border text-left transition flex flex-col justify-between ${
+                  activeTab === 'marketplace'
+                    ? 'bg-[#EDF0E9] border-[#5A634E] text-[#5A634E]'
+                    : 'bg-white border-[#E5E0D8] text-[#4A4A3A] hover:bg-[#F5F2ED]'
+                }`}
+              >
+                <div className="w-8 h-8 rounded-xl bg-[#D5F5E3] text-[#1D8348] flex items-center justify-center mb-2">
+                  <ShoppingBag className="w-4 h-4" />
+                </div>
+                <div className="font-bold text-xs">Book Depot</div>
+                <div className="text-[10px] text-[#8B8374] mt-0.5">Used Books & Notes</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveTab('payments');
+                  setIsMobileMoreOpen(false);
+                }}
+                className={`p-3 rounded-2xl border text-left transition flex flex-col justify-between ${
+                  activeTab === 'payments'
+                    ? 'bg-[#EDF0E9] border-[#5A634E] text-[#5A634E]'
+                    : 'bg-white border-[#E5E0D8] text-[#4A4A3A] hover:bg-[#F5F2ED]'
+                }`}
+              >
+                <div className="w-8 h-8 rounded-xl bg-[#EDF0E9] text-[#5A634E] flex items-center justify-center mb-2">
+                  <CreditCard className="w-4 h-4" />
+                </div>
+                <div className="font-bold text-xs">Fee Receipts & UPI</div>
+                <div className="text-[10px] text-[#8B8374] mt-0.5">Scan & Pay Admissions</div>
+              </button>
+            </div>
+
+            {/* Quick Actions Strip */}
+            <div className="pt-2 border-t border-[#E5E0D8] space-y-2">
+              <button
+                onClick={() => {
+                  setIsMobileMoreOpen(false);
+                  setIsRoleSwitcherOpen(true);
+                }}
+                className="w-full p-2.5 rounded-2xl bg-white border border-[#E5E0D8] hover:bg-[#F5F2ED] text-xs font-semibold text-[#4A4A3A] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-lg bg-[#EDF0E9] text-[#5A634E] flex items-center justify-center text-xs">
+                    🔄
+                  </span>
+                  <span>Switch Workspace Role</span>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-[#8B8374]" />
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsMobileMoreOpen(false);
+                  setAuthModalMode('account');
+                  setIsAuthModalOpen(true);
+                }}
+                className="w-full p-2.5 rounded-2xl bg-white border border-[#E5E0D8] hover:bg-[#F5F2ED] text-xs font-semibold text-[#4A4A3A] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-lg bg-[#F5F2ED] text-[#4A4A3A] flex items-center justify-center text-xs">
+                    👤
+                  </span>
+                  <span>Account & Profile Settings</span>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-[#8B8374]" />
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Global Modals */}

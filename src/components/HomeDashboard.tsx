@@ -59,7 +59,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
   return (
     <div className="space-y-6 pb-12">
       {/* Hero Student Progress Card */}
-      <div className="relative overflow-hidden rounded-[32px] bg-[#5A634E] text-white p-6 sm:p-8 shadow-sm">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-[#5A634E] text-white p-5 sm:p-8 shadow-sm">
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
@@ -192,7 +192,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
       {/* Continue Learning / Featured NCERT Chapter */}
       {featuredChapter && (
-        <div className="p-6 rounded-[32px] bg-[#F5F2ED] border border-[#E5E0D8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-[32px] bg-[#F5F2ED] border border-[#E5E0D8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-5">
           <div className="space-y-1.5">
             <span className="text-[11px] uppercase font-bold tracking-wider text-[#5A634E]">
               Continue Learning
@@ -462,7 +462,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       {/* Two Columns: Planner Tasks Preview & Leaderboard */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Today's Study Planner Preview */}
-        <div className="lg:col-span-2 p-6 rounded-3xl bg-white border border-[#E5E0D8] space-y-4">
+        <div className="lg:col-span-2 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-serif font-bold text-[#4A4A3A] flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#5A634E]" />
@@ -506,7 +506,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
 
         {/* Live Class Leaderboard */}
-        <div className="p-6 rounded-3xl bg-white border border-[#E5E0D8] space-y-4">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#E5E0D8] space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-serif font-bold text-[#4A4A3A] flex items-center gap-1.5">
               <Award className="w-4 h-4 text-[#AF601A]" />

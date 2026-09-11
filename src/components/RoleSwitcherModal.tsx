@@ -72,8 +72,8 @@ export const RoleSwitcherModal: React.FC<RoleSwitcherModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="w-full max-w-lg bg-[#FDFBF7] border border-[#E5E0D8] rounded-2xl sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh] my-auto animate-in fade-in zoom-in-95">
         <div className="p-5 sm:p-6 border-b border-[#E5E0D8] flex items-center justify-between bg-white">
           <div>
             <h3 className="text-base sm:text-lg font-serif font-bold text-[#4A4A3A]">Switch Role Workspace</h3>
